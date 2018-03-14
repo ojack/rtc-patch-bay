@@ -1,0 +1,33 @@
+{
+  "name": "rtc-patch-bay",
+  "version": "1.0.0",
+  "description": "\"Multi-peer, adhoc routing built on simple-peer\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ojack/rtc-patch-bay.git"
+  },
+  "keywords": [
+    "webrtc",
+    "peer",
+    "p2p",
+    "patch-bay",
+    "video",
+    "audio",
+    "livecoding",
+    "stream",
+    "media"
+  ],
+  "author": "ojack",
+  "license": "MIT",
+  "dependencies": {
+    "inherits": "^2.0.3",
+    "shortid": "^2.2.8",
+    "simple-peer": "^9.0.0",
+    "socket.io": "^2.0.4",
+    "xtend": "^4.0.1"
+  }
+}
