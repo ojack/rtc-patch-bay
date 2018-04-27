@@ -1,6 +1,6 @@
 {
   "name": "rtc-patch-bay",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "\"Multi-peer, adhoc routing built on simple-peer\"",
   "main": "index.js",
   "scripts": {
