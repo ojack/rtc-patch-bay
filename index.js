@@ -22,7 +22,7 @@ var PatchBay = function (options) {
   this._peerOptions = options.peerOptions || {}
   this._room = options.room
 
-  //object containing ALL peers in room
+
   this.settings = {
     shareMediaWhenRequested: true,
     shareMediaWhenInitiating: false,
@@ -30,7 +30,9 @@ var PatchBay = function (options) {
     autoconnect: false
   }
 
+  //object containing ALL peers in room
   this.peers = {}
+
   //object containing peers connected via webrtc
   this.rtcPeers = {}
 
@@ -101,7 +103,7 @@ PatchBay.prototype.initRtcPeer = function(id, opts) {
 
 PatchBay.prototype.reinitRtcConnection = function(id, opts){
   // Because renegotiation is not implemeneted in SimplePeer, reinitiate connection when configuration has changed
-  this.rtcPeers[id].destroy(function(e){
+  this.rtcPeers[id]._destroy(null, function(e){
       this.initRtcPeer(id, {
         stream: this.stream,
         initiator: true
@@ -222,6 +224,10 @@ PatchBay.prototype._attachPeerEvents = function (p, _id) {
     delete (this.rtcPeers[id])
     this.emit('close', id)
   }.bind(this, _id))
+
+  p.on('error', function(e){
+    console.log("simple peer error", e)
+  })
 }
 
 PatchBay.prototype._destroy = function () {
